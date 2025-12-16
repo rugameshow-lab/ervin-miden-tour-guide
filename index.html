@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ervin Miden Tour Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ervin Miden Tour Guide — авторські екскурсії Черніговом. Історичні маршрути, Антонієві печери, Дитинець.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== Навігаційне меню ===== -->
+<nav class="main-nav">
+    <a href="#hero-section">Головна</a>
+    <a href="routes.html">Маршрути</a>
+    <a href="contacts.html">Контакти</a>
+</nav>
+
+<!-- ===== Головна секція ===== -->
+<section id="hero-section" class="hero-section">
+    <div class="hero-text">
+        <h1>Ervin Miden Tour Guide</h1>
+        <p>Професійні екскурсії Черніговом з цікавими фактами, легендами та живою історією міста.</p>
+        <a href="contacts.html" class="btn-book">Записатися на екскурсію</a>
+    </div>
+</section>
+
+<!-- ===== Секція "Ласкаво просимо" ===== -->
+<section id="about-section" class="section">
+    <h2>Ласкаво просимо!</h2>
+    <p>Відкрийте для себе Чернігів разом з Ервіном Міденом. Авторські екскурсії по історичних місцях міста з легендами та живою історією.</p>
+    <button class="fact-btn" onclick="openFact()">Цікавий факт про Чернігів</button>
+   </section>
+    <section id="advantages" class="section">
+    <h2>Чому варто обрати нас?</h2>
+    <div class="advantages-grid">
+        <div class="adv-card">
+            <img src="img/icon1.png" alt="Досвідчений гід">
+            <h3>Досвідчений гід</h3>
+            <p>Багаторічний досвід проведення екскурсій по Чернігову.</p>
+        </div>
+        <div class="adv-card">
+            <img src="img/icon2.png" alt="Цікаві маршрути">
+            <h3>Цікаві маршрути</h3>
+            <p>Авторські маршрути з легендами та таємницями міста.</p>
+        </div>
+        <div class="adv-card">
+            <img src="img/icon3.png" alt="Живі факти">
+            <h3>Живі факти</h3>
+            <p>Цікаві факти та історії оживають під час екскурсії.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Вікно модал -->
+    <div id="factModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFact()">&times;</span>
+            <h3>Цікавий факт</h3>
+            <p>Чернігів — одне з найдавніших міст України. Перші згадки про нього датуються 907 роком.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <p>© 2025 Ervin Miden Tour Guide</p>
+</footer>
+
+<!-- ===== JS для модалки ===== -->
+<script>
+function openFact() { document.getElementById("factModal").style.display = "block"; }
+function closeFact() { document.getElementById("factModal").style.display = "none"; }
+window.onclick = function(event) {
+    let modal = document.getElementById("factModal");
+    if(event.target == modal) modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
