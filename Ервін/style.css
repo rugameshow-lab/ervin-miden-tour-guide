@@ -1,0 +1,1113 @@
+/* ===== Загальні стилі ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+h1, h2, h3 { margin: 0 0 15px; }
+p { margin: 0 0 20px; }
+
+/* ===== Меню ===== */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff6a00;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after { width: 100%; }
+.main-nav a:hover { color: #ff6a00; background: rgba(255,255,255,0.1); transform: scale(1.05); }
+
+/* ===== Головна секція ===== */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background: url('img/hero-bg.jpg') center/cover no-repeat;
+    position: relative;
+    padding-top: 80px; /* Відступ під меню */
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 500px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 { font-size: 48px; margin-bottom: 20px; }
+.hero-text p { font-size: 18px; margin-bottom: 25px; }
+
+/* ===== Кнопка ===== */
+.btn-book {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ff6a00;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-book:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* ===== Фото і хмаринка ===== */
+.hero-photo {
+    position: relative;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.hero-photo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+}
+
+.thought-bubble {
+    position: absolute;
+    top: -10px;
+    left: 70%;
+    transform: translateX(-50%);
+    max-width: 220px;
+    padding: 15px 18px;
+    background: #f7f1e3;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 15px;
+    animation: bubbleAppear 0.6s ease-out forwards, bubbleBreath 5s ease-in-out infinite;
+}
+
+@keyframes bubbleAppear {
+    from { opacity:0; transform: translateX(-50%) translateY(-20px);}
+    to {opacity:1; transform: translateX(-50%) translateY(0);}
+}
+
+@keyframes bubbleBreath {
+    0%,100% { transform: translateX(-50%) translateY(0);}
+    50% { transform: translateX(-50%) translateY(-5px);}
+}
+
+/* ===== Секції ===== */
+.section {
+    padding: 80px 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left:0; top:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background:#fff;
+    margin:15% auto;
+    padding:30px;
+    border-radius:15px;
+    width:90%;
+    max-width:500px;
+    position:relative;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.close {
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#333;
+}
+
+.fact-btn {
+    padding:12px 20px;
+    border:none;
+    background:#ff6a00;
+    color:#fff;
+    border-radius:25px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.fact-btn:hover { transform: scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+
+/* ===== Контакти ===== */
+.contact-btn {
+    display:inline-block;
+    margin-right:15px;
+    margin-bottom:10px;
+    padding:10px 20px;
+    background:#333;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover { background:#ff6a00; transform: scale(1.05); }
+
+/* ===== Footer ===== */
+.footer {
+    text-align:center;
+    padding:20px 0;
+    background:#222;
+    color:#fff;
+}
+
+/* ===== Медіа-запити для телефону ===== */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-text {
+        margin: 0 0 30px 0;
+    }
+
+    .hero-photo {
+        margin: 0 auto 20px auto;
+    }
+
+    .hero-photo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .thought-bubble {
+        left: 50%;
+        top: -50px;
+        transform: translateX(-50%);
+    }
+
+    .main-nav {
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .btn-book {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+}
+/* ===== Фото і хмаринка ===== */
+.hero-photo {
+    position: relative;
+    margin-left: 30px; /* відступ від тексту */
+    margin-bottom: 40px; /* відступ вниз, щоб фото було нижче */
+}
+
+.hero-photo img {
+    width: 180px;   /* зменшили фото */
+    height: 180px;  /* зменшили фото */
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+}
+
+.thought-bubble {
+    position: absolute;
+    top: -40px;      /* зрушили хмаринку трохи вище фото */
+    left: 50%;       /* по центру фото */
+    transform: translateX(-50%);
+    max-width: 200px;
+    padding: 12px 15px;
+    background: #f7f1e3;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 14px;
+    animation: bubbleAppear 0.6s ease-out forwards, bubbleBreath 5s ease-in-out infinite;
+}
+@media (max-width: 768px) {
+    .hero-photo {
+        margin: 0 auto 30px auto; /* центр і нижче */
+    }
+
+    .hero-photo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .thought-bubble {
+        top: -35px; /* трохи вище фото */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+/* ===== Фото і хмаринка ===== */
+.hero-photo {
+    position: relative;
+    margin-left: 30px;    /* відступ від тексту */
+    margin-bottom: 80px;  /* фото нижче */
+}
+
+.hero-photo img {
+    width: 180px;   /* залишаємо зменшене фото */
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+}
+
+.thought-bubble {
+    position: absolute;
+    top: -50px;      /* хмаринка трохи вище фото */
+    left: 50%;       
+    transform: translateX(-50%);
+    max-width: 200px;
+    padding: 12px 15px;
+    background: #f7f1e3;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 14px;
+    animation: bubbleAppear 0.6s ease-out forwards, bubbleBreath 5s ease-in-out infinite;
+}
+
+/* ===== Адаптація для телефону ===== */
+@media (max-width: 768px) {
+    .hero-photo {
+        margin: 0 auto 60px auto; /* нижче і по центру */
+    }
+
+    .hero-photo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .thought-bubble {
+        top: -40px; /* трохи вище фото */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+/* ===== Фото і хмаринка ===== */
+.hero-photo {
+    position: relative;
+    margin-left: 30px;    /* відступ від тексту */
+    margin-bottom: 80px;  /* фото нижче */
+}
+
+.hero-photo img {
+    width: 180px;   /* залишаємо зменшене фото */
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+}
+
+.thought-bubble {
+    position: absolute;
+    top: -50px;      /* хмаринка трохи вище фото */
+    left: 50%;       
+    transform: translateX(-50%);
+    max-width: 200px;
+    padding: 12px 15px;
+    background: #f7f1e3;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 14px;
+    animation: bubbleAppear 0.6s ease-out forwards, bubbleBreath 5s ease-in-out infinite;
+}
+
+/* ===== Адаптація для телефону ===== */
+@media (max-width: 768px) {
+    .hero-photo {
+        margin: 0 auto 60px auto; /* нижче і по центру */
+    }
+
+    .hero-photo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .thought-bubble {
+        top: -40px; /* трохи вище фото */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(11, 11, 11, 0.3);
+}
+.slider {
+    overflow: hidden;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+.slider-track {
+    display: flex;
+    width: calc(250px * 12); /* 250px ширина картинки * кількість картинок (можеш змінити) */
+    animation: scroll 20s linear infinite;
+}
+
+.slider-track img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+/* Анімація руху */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Адаптивність */
+@media (max-width: 600px) {
+    .slider-track img {
+        width: 200px;
+        height: 120px;
+    }
+}
+.slider-desktop {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+    display: none; /* ховаємо за замовчуванням */
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Кнопки */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    font-size: 40px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: #ff6a00;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ===== ПОКАЗУЄМО ТІЛЬКИ НА ПК ===== */
+@media (min-width: 1024px) {
+    .slider-desktop {
+        display: block;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* ===== МЕНЮ ===== */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.main-nav a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ===== HERO ===== */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-text {
+    max-width: 450px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    margin-bottom: 25px;
+}
+
+.btn-book {
+    display: inline-block;
+    background: #ff6a00;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-book:hover {
+    transform: scale(1.1);
+}
+
+/* ===== ФОТО + ХМАРИНКА ===== */
+.hero-photo {
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero-photo img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #ff6a00;
+}
+
+.thought-bubble {
+    position: absolute;
+    right: -160px;
+    top: 40px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== СЕКЦІЇ ===== */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* ===== СТРІЧКА МАРШРУТІВ (ПК) ===== */
+.routes-strip-desktop {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    display: none;
+}
+
+.strip-window {
+    overflow: hidden;
+}
+
+.strip-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.strip-track img {
+    width: 300px;
+    height: 220px;
+    border-radius: 18px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Кнопки */
+.strip-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    font-size: 36px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.strip-btn.left { left: -25px; }
+.strip-btn.right { right: -25px; }
+
+.strip-btn:hover {
+    background: #ff6a00;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 30px;
+    background: #222;
+    color: white;
+}
+
+/* ===== ТІЛЬКИ ДЛЯ ПК ===== */
+@media (min-width: 1024px) {
+    .routes-strip-desktop {
+        display: block;
+    }
+}
+
+/* ===== МОБІЛКА ===== */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-photo {
+        margin-top: 40px;
+    }
+
+    .thought-bubble {
+        position: static;
+        margin-top: 15px;
+    }
+}
+/* ===== ДЕКОР МАРШРУТІВ ===== */
+.route-icon {
+    font-size: 32px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.route-line {
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    margin: 10px 0 15px;
+}
+
+/* Кольорові акценти */
+.accent-blue .route-line { background: #3b82f6; }
+.accent-green .route-line { background: #22c55e; }
+.accent-orange .route-line { background: #ff6a00; }
+
+.accent-blue { border-top: 4px solid #3b82f6; }
+.accent-green { border-top: 4px solid #22c55e; }
+.accent-orange { border-top: 4px solid #ff6a00; }
+
+/* Кнопка */
+.route-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: #ff6a00;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.route-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Анімація появи */
+.route-card {
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.route-icon {
+    font-size: 32px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.route-line {
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    margin: 10px 0 15px;
+}
+
+/* Кольорові акценти */
+.accent-blue .route-line { background: #3b82f6; }
+.accent-green .route-line { background: #22c55e; }
+.accent-orange .route-line { background: #ff6a00; }
+
+.accent-blue { border-top: 4px solid #3b82f6; }
+.accent-green { border-top: 4px solid #22c55e; }
+.accent-orange { border-top: 4px solid #ff6a00; }
+
+/* Кнопка */
+.route-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: #ff6a00;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.route-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Анімація появи */
+.route-card {
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.route-card {
+    background: #ffffff;
+    border-radius: 25px;         /* більше скруглення */
+    padding: 20px;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* легка тінь */
+}
+
+.route-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.route-card {
+    background: #ffffff;
+    border-radius: 20px;          /* округлі кути */
+    padding: 0;                   /* прибираємо внутрішні падінги для фото */
+    text-align: left;
+    overflow: hidden;             /* щоб картинка не виходила за рамки */
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.route-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Зображення займає весь прямокутник */
+.route-card img {
+    width: 100%;
+    height: 300px;               /* висота збільшена для прямокутника */
+    object-fit: cover;           /* картинка покриває весь блок */
+    display: block;
+}
+
+/* Контент під фото */
+.route-card .route-icon,
+.route-card h3,
+.route-card .route-line,
+.route-card p,
+.route-card .route-btn {
+    padding: 15px;
+}
+
+.route-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.route-line {
+    width: 50px;
+    height: 4px;
+    border-radius: 4px;
+    margin: 8px 0 12px;
+}
+
+.route-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #ff6a00;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.route-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Іконка маршруту */
+.route-icon {
+    font-size: 28px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 900px) {
+}
+.btn-book {
+    display: inline-block;
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #ff5050, #ff9900);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(255,105,0,0.4);
+    transition: 0.3s all;
+    animation: pulse 2.5s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover ефект: покачування */
+.btn-book:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 12px 30px rgba(255,105,0,0.6);
+}
+
+/* Анімація пульсування */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Ефект блиску */
+.btn-book::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255,255,255,0.3);
+    transform: rotate(25deg) translateX(-100%);
+    transition: 0.7s all;
+}
+
+.btn-book:hover::after {
+    transform: rotate(25deg) translateX(200%);
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+    .btn-book {
+        padding: 15px 28px;
+        font-size: 16px;
+    }
+}
+.hero-text h1 {
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.route-card {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.section {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.8));
+}
+h2::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #d0834c;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.adv-card img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.adv-card h3 {
+    margin-bottom: 10px;
+}
+
+.adv-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.adv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.icons-container {
+  display: flex;
+  justify-content: center; /* Вирівнювання по центру */
+  gap: 40px; /* Відстань між іконками */
+  margin: 50px 0;
+}
+
+/* Стиль самих іконок */
+.icons-container img {
+  width: 80px; /* Розмір іконки */
+  height: 80px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Плавна анімація */
+  cursor: pointer;
+}
+
+/* Ефект при наведенні */
+.icons-container img:hover {
+  transform: scale(1.2); /* Збільшення іконки */
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); /* Тінь для ефекту "підняття" */
+}
+.welcome-section {
+  background-color: #ff8520; /* Світло-блакитний фон, можна змінити */
+  padding: 50px 20px;        /* Відступи зверху/знизу та з боків */
+  text-align: center;        /* Текст по центру */
+  border-radius: 15px;       /* Закруглені краї */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Тінь для обʼєму */
+  transition: background-color 0.3s ease; /* Плавна зміна фону при потребі */
+}
+.contacts-section {
+  text-align: center;
+}
+
+.contacts-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.contact-btn.telegram {
+  background-color: #229ED9;
+}
+
+.contact-btn.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+.contacts-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.contacts-info a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.contacts-info a:hover {
+  text-decoration: underline;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Основний контент росте, footer прижимається вниз */
+.section {
+  flex: 1;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a; /* можеш змінити під свій стиль */
+  color: #ffffff;
+}
+.side-ad {
+  position: fixed;
+  right: -60px;
+  top: 50%;
+  transform: rotate(-90deg) translateY(-50%);
+  transform-origin: right top;
+
+  background-color: #0a42c4;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 0 0 10px 10px;
+  opacity: 0.8;
+  z-index: 9999;
+}
+.side-ad-inline {
+  text-align: center;
+  margin: 40px auto 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #64748b;
+  opacity: 0.7;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+.side-ad-inline:hover {
+  opacity: 1;
+}
